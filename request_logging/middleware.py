@@ -156,7 +156,7 @@ class LoggingMiddleware(object):
         self._log_request_body(request, logging_context)
 
     def _log_request_headers(self, request, logging_context):
-        headers = {k: v for k, v in request.META.items() if k.startswith('HTTP_')}
+        headers = {k: v for k, v in request.META.items()} # if k.startswith('HTTP_')
 
         if headers:
             self.logger.log(self.log_level, headers, logging_context)
